@@ -7,6 +7,7 @@ const _repo = new repository();
 const md5 = require('md5');
 const jwt = require('jsonwebtoken');
 const variables = require('../bin/configuration/variables');
+
 function usuarioController() {
 
 }
@@ -63,32 +64,26 @@ usuarioController.prototype.delete = async (req, res) => {
     ctrlBase.delete(_repo, req, res);
 };
 
-usuarioController.prototype.autenticar = async(req, res)=>{
+usuarioController.prototype.autenticar = async (req, res) => {
 
     let _validationContract = new validation();
     _validationContract.isRequired(req.body.email, 'Informe seu e-mail');
-    _validationContract.isEmail(req.body.email, 'E-mail inválido');
+    _validationContract.isEmail(req.body.email, 'E-mail informado é inválido');
     _validationContract.isRequired(req.body.senha, 'Informe sua senha');
 
-    if(!_validationContract.isValid()){
-
-        res.status(400).send({message: 'Não foi possível efetuar o login', validation:_validationContract.errors()})
+    if (!_validationContract.isValid()) {
+        res.status(400).send({ message: 'Não foi possível efetuar o login', validation: _validationContract.errors() })
         return;
     }
-    let usuarioEncontrado = await  _repo.authenticate(req.body.email, req.body.senha);
-
-    if(usuarioEncontrado){
-
+    let usuarioEncontrado = await _repo.authenticate(req.body.email, req.body.senha);
+    if (usuarioEncontrado) {
         res.status(200).send({
-
             usuario: usuarioEncontrado,
-            token: jwt.sign(usuarioEncontrado,variables.Security.secretKey)
+            token: jwt.sign({ user: usuarioEncontrado }, variables.Security.secretyKey)
         })
-
-    }else{
-
-        res.status(404).send({message:'Usuario e senha informados são inválidos'});
+    } else {
+        res.status(404).send({ message: 'Usuário e senha informado são inválido!' });
     }
-
 }
+
 module.exports = usuarioController;

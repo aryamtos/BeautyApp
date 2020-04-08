@@ -2,9 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const variables = require('./configuration/variables');
-//route 
 
-
+//Routers
 const categoryRouter = require('../routes/category-router');
 
 const calendarRouter = require('../routes/calendar-router');
@@ -42,9 +41,12 @@ const cidadeRouter = require('../routes/cidade-router');
 const ufRouter = require('../routes/uf-router');
 
 const paisRouter = require('../routes/pais-router')
+
+
 //Criando/Invocando a Api/Server Web do Express
-//Configuração de parse do JSON
 const app = express();
+
+//Configuração de parse do JSON
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -94,3 +96,6 @@ app.use('/api/uf', ufRouter);
 app.use('/api/Pais', paisRouter);
 //Exportando nossa Api
 module.exports = app;
+
+
+// Api -> MIDDLEWARES -> Rotas -> Controller -> Repository -> Banco

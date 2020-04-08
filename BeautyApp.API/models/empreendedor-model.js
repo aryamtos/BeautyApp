@@ -6,6 +6,8 @@ const schema = mongoose.Schema;
 
 const empreendedorModel = new schema({
 
+    nome:{type: String, required:true, trim: true},
+    sobrenome:{type:String, required:true, trim: true},
     codigo_empreendedor:{type: Number, required: true, unique: true},
     codigo_categoria:{type: mongoose.Schema.Types.ObjectId, ref: 'Category'},
     codigo_servico:{type: mongoose.Schema.Types.ObjectId, ref: 'servico'},

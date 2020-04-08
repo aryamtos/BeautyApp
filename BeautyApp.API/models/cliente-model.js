@@ -8,6 +8,7 @@ const now = new Date();
 const clienteModel = new schema({ //definição de campos
 
     codigo_cliente: { type: Number, index: true,required: true, unique: true},
+    nome:{type: String, trim:true},
     dataNascimento:{ 
             type: Date,default: Date.now
      },

@@ -1,43 +1,43 @@
 'use strict'
 
-
 const repository = require('../repositories/cliente-repository');
-const validation = require('../bin/helpers/validation');
 const ctrlBase = require('../bin/base/controller-base');
+const validation = require('../bin/helpers/validation');
 const _repo = new repository();
 
-function clienteController(){
+function clienteController() {
 
 }
 
-clienteController.prototype.post = async( req, res) =>{
+clienteController.prototype.post = async (req, res) => {
 
-    let resultado = await new repository().create(req.body);
-    res.status(201).send(resultado);
-
+    let _validationContract = new validation();
+    _validationContract.isRequired(req.body.codigo_cliente, 'O código é obrigatório');
+    _validationContract.isRequired(req.body.codigo_usuario, 'Código de usuário é obrigatório');
+    
+    ctrlBase.post(_repo, _validationContract, req, res);
 };
 
-clienteController.prototype.put = async( req, res) =>{
+clienteController.prototype.put = async (req, res) => {
 
-    let resultado = await new repository().update(req.params.id, req.body);
-    res.status(202).send(resultado);
-    
-    };
+    let _validationContract = new validation();
+    _validationContract.isRequired(req.body.codigo_cliente, 'o código é obrigatório');
+    _validationContract.isRequired(req.body.codigo_usuario, 'Código Obrigatório');
+    _validationContract.isRequired(req.params.id, 'O Id que será atualizado é obrigatório');
 
-clienteController.prototype.get = async( req, res) =>{
+    ctrlBase.put(_repo, _validationContract, req, res);
+};
 
+clienteController.prototype.get = async (req, res) => {
     ctrlBase.get(_repo, req, res);
 };
 
-clienteController.prototype.getById = async( req, res) =>{
-
+clienteController.prototype.getById = async (req, res) => {
     ctrlBase.getById(_repo, req, res);
 };
 
-clienteController.prototype.delete = async( req, res) =>{
-
+clienteController.prototype.delete = async (req, res) => {
     ctrlBase.delete(_repo, req, res);
-
 };
 
-module.exports = clienteController; 
+module.exports = clienteController;

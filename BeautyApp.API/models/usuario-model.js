@@ -6,7 +6,7 @@ const schema = mongoose.Schema; // importamos o schema
 
 const usuarioModel = new schema({ //definição de campos
 
-    codigo_usuario: { type: Number, index: true,required: true, unique: true},
+    codigo_usuario: { type: Number, index: true,required: false, unique: true},
     nome    : {type: String, required: true, trim: true},
     sobrenome: {type: String, required: true, trim: true},
     email:{type: String},

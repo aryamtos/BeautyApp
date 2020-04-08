@@ -1,43 +1,43 @@
 'use strict'
 
-
 const repository = require('../repositories/category-repository');
-const validation = require('../bin/helpers/validation');
 const ctrlBase = require('../bin/base/controller-base');
+const validation = require('../bin/helpers/validation');
 const _repo = new repository();
 
-function categoryController(){
+function categoriaController() {
 
 }
 
-categoryController.prototype.post = async( req, res) =>{
+categoriaController.prototype.post = async (req, res) => {
 
-    let resultado = await new repository().create(req.body);
-    res.status(201).send(resultado);
+    let _validationContract = new validation();
+    _validationContract.isRequired(req.body.titulo, 'o título é obrigatório');
+    _validationContract.isRequired(req.body.codigo_categoria, 'Código obrigatório');
 
+    ctrlBase.post(_repo, _validationContract, req, res);
 };
 
-categoryController.prototype.put = async( req, res) =>{
+categoriaController.prototype.put = async (req, res) => {
 
-    let resultado = await new repository().update(req.params.id, req.body);
-    res.status(202).send(resultado);
-    
-    };
+    let _validationContract = new validation();
+    _validationContract.isRequired(req.body.titulo, 'o título é obrigatório');
+    _validationContract.isRequired(req.body.codigo_categoria, 'Código Obrigatório');
+    _validationContract.isRequired(req.params.id, 'O Id que será atualizado é obrigatório');
 
-categoryController.prototype.get = async( req, res) =>{
+    ctrlBase.put(_repo, _validationContract, req, res);
+};
 
+categoriaController.prototype.get = async (req, res) => {
     ctrlBase.get(_repo, req, res);
 };
 
-categoryController.prototype.getById = async( req, res) =>{
-
+categoriaController.prototype.getById = async (req, res) => {
     ctrlBase.getById(_repo, req, res);
 };
 
-categoryController.prototype.delete = async( req, res) =>{
-
+categoriaController.prototype.delete = async (req, res) => {
     ctrlBase.delete(_repo, req, res);
-
 };
 
-module.exports = categoryController; 
+module.exports = categoriaController;

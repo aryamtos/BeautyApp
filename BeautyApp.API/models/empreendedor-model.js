@@ -9,6 +9,7 @@ const empreendedorModel = new schema({
     nome:{type: String, required:true, trim: true},
     sobrenome:{type:String, required:true, trim: true},
     senha:{type: String},
+    email:{type:String},
     categoria:{ type:mongoose.Schema.Types.ObjectId, ref:'Category'},
     tel:{
         type: String

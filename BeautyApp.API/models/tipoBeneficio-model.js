@@ -6,8 +6,11 @@ const schema = mongoose.Schema;
 
 const tipoBeneficioModel = new schema({
 
-    codigo_tipoBeneficio:{type: String, index: true, required: true},
-    nome_tipo_beneficio:{type: String, required:true},
+
+    nome_tipo_beneficio:{
+        type: String, 
+        required:true
+    },
     valor: {type:Number }
 
 }, { versionKey:false});

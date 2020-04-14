@@ -40,7 +40,8 @@ const cidadeRouter = require('../routes/cidade-router');
 
 const ufRouter = require('../routes/uf-router');
 
-const paisRouter = require('../routes/pais-router')
+const paisRouter = require('../routes/pais-router');
+const tipoPagamento = require('../routes/tipoPagamento-router');
 
 
 //Criando/Invocando a Api/Server Web do Express
@@ -94,6 +95,8 @@ app.use('/api/Cidade', cidadeRouter);
 app.use('/api/uf', ufRouter);
 
 app.use('/api/Pais', paisRouter);
+
+app.use('/api/tipoPagamento', tipoPagamento);
 //Exportando nossa Api
 module.exports = app;
 

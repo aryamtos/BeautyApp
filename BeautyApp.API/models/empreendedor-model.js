@@ -8,11 +8,15 @@ const empreendedorModel = new schema({
 
     nome:{type: String, required:true, trim: true},
     sobrenome:{type:String, required:true, trim: true},
-    codigo_empreendedor:{type: Number, required: true, unique: true},
-    codigo_categoria:{type: mongoose.Schema.Types.ObjectId, ref: 'Category'},
-    codigo_servico:{type: mongoose.Schema.Types.ObjectId, ref: 'servico'},
-    codigo_user:{type: mongoose.Schema.Types.ObjectId, ref: 'Usuario'}
-
+    senha:{type: String},
+    categoria:{ type:mongoose.Schema.Types.ObjectId, ref:'Category'},
+    tel:{
+        type: String
+    },
+    nome_empresa:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Estabelecimento'
+    }
 }, { versionKey: false});
 
 

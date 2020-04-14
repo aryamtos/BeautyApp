@@ -7,12 +7,7 @@ const schema = mongoose.Schema;
 
 const diaModel = new schema({
 
-    codigo_dia:{
-        type: Number,
-        index: true,
-        required:true,
-        unique: true
-    },
+ 
     nome_dia:{
         type: String,
         trim: true,

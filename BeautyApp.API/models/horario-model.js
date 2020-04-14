@@ -6,9 +6,12 @@ const schema = mongoose.Schema; // importamos o schema
 
 const horarioModel = new schema({ //definição de campos
 
-    codigo_horario: { type: Number, index: true,required: true, unique: true},
-    //horario:{type}
-    codigo_status:{ type:mongoose.Schema.Types.ObjectId, ref: 'status'},
+
+    horario: {type: String},
+    codigo_status:{ 
+        type:mongoose.Schema.Types.ObjectId, 
+        ref: 'status'
+    },
     dataCriacao:{type: Date, default: Date.now}
 }, {versionKey: false});
 

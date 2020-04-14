@@ -5,9 +5,11 @@ const schema = mongoose.Schema;
 
 
 const localizacaoModel = new schema({
-
-    codigo_servico_localizacao:{type:Number, index: true, required:true},
-    codigo_endereco:{type: mongoose.Schema.Types.ObjectId, ref:'endereco'},
+        
+    endereco:{
+        type: mongoose.Schema.Types.ObjectId, 
+        ref:'endereco'
+    },
     
 }, {versionKey: false});
 

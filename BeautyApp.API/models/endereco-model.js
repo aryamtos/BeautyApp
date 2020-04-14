@@ -7,10 +7,18 @@ const schema = mongoose.Schema; // importamos o schema
 const enderecoModel = new schema({ //definição de campos
 
  
-    codigo_endereco:{type: Number, required: true, index: true, unique: true},
-    logradouro: {type:String},
-    numero:{type:Number},
-    codigo_bairro:{type:mongoose.Schema.Types.ObjectId, ref: 'bairro'}
+    logradouro: {
+        type:String,
+        trim: true
+    },
+    numero:{
+        type:Number
+    },
+    bairro:{
+        type:mongoose.Schema.Types.ObjectId,
+         ref: 'bairro'
+    },
+
 }, {versionKey: false});
 
 

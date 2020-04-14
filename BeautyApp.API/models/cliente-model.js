@@ -7,12 +7,51 @@ const now = new Date();
 
 const clienteModel = new schema({ //definição de campos
 
-    codigo_cliente: { type: Number, index: true,required: true, unique: true},
-    nome:{type: String, trim:true},
-    dataNascimento:{ 
-            type: Date,default: Date.now
+    nome:{
+
+
+        type: String,
+         trim:true,
+         index:true
+    },
+    sobrenome:{
+
+        type:String,
+        
+    },
+    tel:{
+
+        type: Number
+    },
+    email:{
+        type: String
+    },
+    senha:{
+
+        type: String
+    },
+    localizacao:{
+
+        type:
+            mongoose.Schema.Types.ObjectId, 
+
+            ref:'endereco'
+
+        
+    },
+    sexo:{
+        type: String
+    },
+    dataNascimento:{
+
+            type: String,
+            
      },
-    codigo_usuario:{ type: mongoose.Schema.Types.ObjectId,ref:'Usuario'},
+     user:{
+          type: mongoose.Schema.Types.ObjectId,
+          ref:'Usuario'
+    },
+
     dataCriacao:{type: Date, default: Date.now}
 }, {versionKey: false});
 

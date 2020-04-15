@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const variables = require('./configuration/variables');
 
 //Routers
@@ -42,6 +43,8 @@ const ufRouter = require('../routes/uf-router');
 
 const paisRouter = require('../routes/pais-router');
 const tipoPagamento = require('../routes/tipoPagamento-router');
+
+const login = require('../routes/login-router');
 
 
 //Criando/Invocando a Api/Server Web do Express
@@ -97,6 +100,8 @@ app.use('/api/uf', ufRouter);
 app.use('/api/Pais', paisRouter);
 
 app.use('/api/tipoPagamento', tipoPagamento);
+
+app.use('/api/login', login);
 //Exportando nossa Api
 module.exports = app;
 

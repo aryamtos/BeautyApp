@@ -10,7 +10,8 @@ function App() {
 
     event.preventDefault();
 
-    const response = await api.post('/login',{ email });
+      
+const response = await api.post('/api/Usuario',{ email });
       console.log(response);
   }
   return (
@@ -31,12 +32,7 @@ function App() {
            value = {email}
            onChange = { event => setEmail(event.target.value)}
            />
-           <input
-           type="password"
-           id="password"
-           placeholder="senha"
-          />
-
+           
           <button className="btn" type="submit">Log in</button>
           <div>
           <p>Don't have an account? <strong> Sign up</strong></p>

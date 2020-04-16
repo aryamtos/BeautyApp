@@ -6,12 +6,15 @@ import './App.css';
 function App() {
 
   const[email,setEmail] = useState('');
+  const[nome,setName] = useState('');
+  const[senha,setSenha] = useState('');
   async function handleSubmit(event){
 
     event.preventDefault();
 
-      
-const response = await api.post('/User',{ email });
+//const response2 = await api.post('/User', {nome}); 
+const response = await api.post('/User',{nome, email,senha });
+    
       console.log(response);
   }
   return (
@@ -24,6 +27,13 @@ const response = await api.post('/User',{ email });
         </p>
         <form onSubmit = {handleSubmit}>
 
+          <input
+          type = "nome"
+          id= "nome"
+          placeholder = "Nome"
+          value = {nome}
+          onChange = { event => setName(event.target.value)}
+          />
         
           <input
            type="email"
@@ -32,10 +42,16 @@ const response = await api.post('/User',{ email });
            value = {email}
            onChange = { event => setEmail(event.target.value)}
            />
-           
-          <button className="btn" type="submit">Log in</button>
+           <input
+           type = "password"
+           id ="password"
+           placeholder="senha"
+           value ={senha}
+           onChange = {event => setSenha(event.target.value)}
+           />
+          <button className="btn" type="submit">Cadastrar</button>
           <div>
-          <p>Don't have an account? <strong> Sign up</strong></p>
+          <p>Do you have an account? <strong> Log in</strong></p>
           </div>
           
         </form>

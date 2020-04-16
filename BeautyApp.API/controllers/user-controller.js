@@ -8,16 +8,25 @@ const User = require('../models/user-model');
 
 module.exports = {
     async store(req, res) { 
-        const { email } = req.body;
+        
+        const {nome, email,senha} = req.body;
+       
+        try{
 
-        let user = await User.findOne({ email});
+            if(await User.findOne({nome, email,senha}))
+            return res.status(400).send({error: 'User already exists'});
 
-        if(!user){
-            user = await User.create({ email });
+           // const user = await User.create(req.body);
+           const user = await User.create({
+             nome,email,senha
+           })
+            //user.senha = undefined;
+            return res.send({user});
+        }catch(err){
+
+            return res.status(400).send({error: 'Registration failed'})
+
         }
 
-        // const user = await User.create({ email });
-
-        return res.json(user);
     }
 };

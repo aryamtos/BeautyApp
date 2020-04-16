@@ -11,7 +11,7 @@ function App() {
     event.preventDefault();
 
       
-const response = await api.post('/api/Usuario',{ email });
+const response = await api.post('/User',{ email });
       console.log(response);
   }
   return (

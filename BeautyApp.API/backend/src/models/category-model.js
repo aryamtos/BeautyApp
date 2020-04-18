@@ -12,15 +12,16 @@ const categoriaModel = new schema({ //definição de campos
         type: String,
          required:false,
     },
+    
     tipos:  [String],
 
     price:{
-        type: Number,
+        type: String,
     },
 
     user:{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
+        ref: 'User',
     },
 
      

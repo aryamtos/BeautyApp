@@ -27,7 +27,7 @@ export default function Dashboard() {
                 <li key = {category._id}>
                     <header style={{backgroundImage:`url(${category.foto_url})`}}/>
                     <strong>{category.tipos}</strong>
-                    <span>{category.price ?`R$${category.price}/dia`: 'GRATUITO' }</span>
+                    <span>{category.price ?`R$${category.price}`: 'GRATUITO' }</span>
                 </li>
             ))}
         </ul>

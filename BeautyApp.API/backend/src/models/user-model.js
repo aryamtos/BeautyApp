@@ -10,11 +10,11 @@ const userSchema = new mongoose.Schema({
         required: true,
         lowercase: true,
     } ,
-    senha: {
+    /*senha: {
         type:String,
-        required: true,
+        //required: true,
         select: false,
-    },
+    },*/
     createdAt:{
         type: Date,
         default: Date.now,
@@ -22,13 +22,13 @@ const userSchema = new mongoose.Schema({
     }
 });
 
-userSchema.pre('save', async function(next){
+/*userSchema.pre('save', async function(next){
 
     const hash = await bcrypt.hash(this.senha, 10);
     this.senha = hash;
 
     next();
-});
+});*/
 
 
 module.exports = mongoose.model('User', userSchema);

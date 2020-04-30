@@ -1,12 +1,15 @@
 //importando 
+
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-
+//const socketio = require('socket.io');
 const path = require('path');
 
 const routes = require('./routers');
+
 //importando o express
+
 const app = express();
 
 mongoose.connect('mongodb+srv://Beauty:@r1adn3123@cluster0-k2kw0.mongodb.net/test?retryWrites=true&w=majority',{

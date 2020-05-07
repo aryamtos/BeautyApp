@@ -50,9 +50,7 @@ export default function Dashboard() {
     return (
         <>
             <ul className="notifications">
-
                 {requests.map(request => (
-
                     <li key={request._id}>
                         <p>
                             <strong>{request.User.email}</strong>está solicitando uma reserva em <strong>{request.category.tipos}</strong>para a data<strong>{request.date}</strong>

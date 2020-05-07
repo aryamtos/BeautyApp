@@ -37,8 +37,9 @@ const categoriaModel = new schema({ //definição de campos
 });
 
 categoriaModel.virtual('foto_url').get(function(){
-    return `http://localhost:3000/files/${this.foto}`
-})
+    return `http://192.168.1.106:3000/files/${this.foto}`;
+});
+
 
 
 module.exports = mongoose.model('Category', categoriaModel);

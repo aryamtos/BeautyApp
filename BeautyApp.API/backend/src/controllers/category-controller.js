@@ -1,4 +1,4 @@
-const  Category = require('../models/category-model');
+const  Category = require('../models/category-model'); //Spot
 const User = require('../models/user-model');
 
 module.exports ={
@@ -6,7 +6,7 @@ module.exports ={
     async index(req,res){
 
         const {tipo} = req.query;
-        const categories = await Category.find({tipos:tipo});
+        const categories = await Category.find({tipos:tipo}); //encontrar vários tipos
 
         return res.json(categories);
     },
@@ -31,7 +31,7 @@ module.exports ={
             user:user_id
         })
 
-        return res.json(category);
+        return res.json(category);//spot
 
     }
 };

@@ -13,21 +13,28 @@ const categoriaModel = new schema({ //definição de campos
          required:false,
     },
     
-    tipos:  [String],
-
+    /*tipos:  [String],*/
+    dias: {type: String, required: true},//dias em que o serviço está disponivel
+    horario:{},//horarios para atendimento
+    title: {type: String, required: true},//nome do serviço
+    categoriaServico:{ type : String, required: true},//esse é a categoria do serviço
+    description:{type:String, required: true},
     price:{
         type: String,
     },
-
+    when:{ type: Date, required:true},
     user:{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
     },
+    endereco:{
 
-     
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Endereco',
+    },
     createdAt:{
         type: Date,
-        default: Date.now,
+        default: Date.now(),
 
     },
 },{

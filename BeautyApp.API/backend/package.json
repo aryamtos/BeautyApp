@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "date-fns": "^2.13.0",
     "socket.io": "^2.3.0"
   }
 }

@@ -12,8 +12,7 @@ const BookingSchema = new mongoose.Schema({
     },
     category:{ //spot
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Category'
-
+        ref: 'CategoriaModel'
     }
 });
 

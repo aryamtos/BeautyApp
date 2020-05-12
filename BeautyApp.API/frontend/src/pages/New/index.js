@@ -9,7 +9,7 @@ import './styles.css';
 export default function New({history}){
 
     const [tipos, setTipos] = useState('');
-    const[price,setPrice] = useState('');
+    //const[price,setPrice] = useState('');
     const[foto, setFoto] = useState(null);
     const preview = useMemo(() =>{
 
@@ -21,11 +21,11 @@ export default function New({history}){
        const user_id = localStorage.getItem('user')
     const data = new FormData();
     data.append('foto',foto);
-    data.append('tipos',tipos);
-    data.append('price',price);
+    data.append('nomes',tipos);
+    //data.append('price',price);
     
     
-    await api.post('/Category',data,{
+    await api.post('/CategoriaModel',data,{
         headers:{user_id}
     })
     history.push('/dashboard');
@@ -49,14 +49,7 @@ export default function New({history}){
             value={tipos}
             onChange ={event => setTipos(event.target.value)}
             />
-            <label htmlFor = "price">VALOR *<span>(em branco para GRATUITO)</span></label>
-            <input
-
-            id="price"
-            placeholder = "Valor cobrado"
-            value={price}
-            onChange ={event => setPrice(event.target.value)}
-            />
+           
 
             <button type= "submit" className="btn">Cadastrar</button>
             

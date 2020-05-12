@@ -11,16 +11,15 @@ const servicoSchema = new mongoose.Schema({
         trim: true
     },
     preco:{
-
         type: Number
     },
-    foto:{
+    thumbnail:{
             type: String
     },
     categoria:{
 
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Category'
+        ref: 'CategoriaModel'
     },
     createdAt:{
         type: Date,
@@ -29,4 +28,7 @@ const servicoSchema = new mongoose.Schema({
     }
 });
 
+servicoSchema.virtual('foto_url').get(function(){
+    return `http://192.168.1.106:3000/files/${this.foto}`;
+});
 module.exports = mongoose.model('servico',servicoSchema);

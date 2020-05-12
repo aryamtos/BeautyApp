@@ -1,4 +1,4 @@
-const  Category = require('../models/category-model'); //Spot
+const  Categoria = require('../models/Categoria'); //Spot
 const User = require('../models/user-model');
 
 module.exports ={

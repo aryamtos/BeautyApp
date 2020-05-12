@@ -53,7 +53,7 @@ export default function Dashboard() {
                 {requests.map(request => (
                     <li key={request._id}>
                         <p>
-                            <strong>{request.User.email}</strong>está solicitando uma reserva em <strong>{request.category.tipos}</strong>para a data<strong>{request.date}</strong>
+                            <strong>{request.user.email}</strong>está solicitando uma reserva em <strong>{request.category.nomes}</strong>para a data<strong>{request.date}</strong>
                         </p>
                         <button className="accept" onclick={() => handleAccept(request._id)}>ACEITAR</button>
                         <button className="reject" onclick={() => handleReject(request._id)}>REJEITAR</button>
@@ -64,8 +64,8 @@ export default function Dashboard() {
                 {categories.map(category => (
                     <li key={category._id}>
                         <header style={{ backgroundImage: `url(${category.foto_url})` }} />
-                        <strong>{category.tipos}</strong>
-                        <span>{category.price ? `R$${category.price}` : 'GRATUITO'}</span>
+                        <strong>{category.nomes}</strong>
+                      
                     </li>
                 ))}
             </ul>

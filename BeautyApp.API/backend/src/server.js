@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const socketio = require('socket.io');
+const bodyParser = require('body-parser');
 const path = require('path');
 const http = require('http');
 const routes = require('./routers');
@@ -32,7 +33,8 @@ app.use((req,res, next) =>{
 
     return next();
 })
-
+//require('./models/user-model');
+app.use(bodyParser.json());
 app.use(cors());
 app.use(express.json());
 

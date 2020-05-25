@@ -24,11 +24,19 @@ module.exports = {
         const categorias = await CategoriaModel.find({ categoriaServico: categoriaServico })
         return res.json(categorias);
     },
+    
+    async listServico( req, res){
+
+        const { servico } = req.query;
+        //const categorias = await CategoriaModel.find({ categoriaServico: categoriaServico }).sort('when'); //encontrar vários tipos
+        const servicos = await CategoriaModel.find({ servico: servico })
+        return res.json(servicos);
+    },
     async store(req, res) {
 
         const { filename } = req.file;
         //const { dias, title, categoriaServico, description, when, price } = req.body;
-        const { categoriaServico} = req.body;
+        const { servico, categoriaServico, description, price} = req.body; //categoria
         const { user_id } = req.headers;
 
 
@@ -84,6 +92,9 @@ module.exports = {
             //nomes: nomes.split(',').map(nome => nome.trim()),
             //dias: dias.split(',').map(dias => dias.trim()),
             //title: title.split(',').map(title => title.trim()),
+            servico: servico,
+            description: description,
+            price: price,
             categoriaServico: categoriaServico.split(',').map(categoriaServico => categoriaServico.trim()),
            // description: description,
             //price: price,
@@ -92,6 +103,7 @@ module.exports = {
         }) 
         return res.json(categoriactrl);//spot
     },
+
 
     async update(req, res) {
 

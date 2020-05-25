@@ -18,7 +18,7 @@ const current = new Date();
 
 module.exports = {
 
-    async index(req, res) {
+    async index(req, res,next) {
 
         const { nome } = req.query;
         const servico = await ServicoModel.find({ nome:nome }) //encontrar vários tipos
@@ -28,16 +28,14 @@ module.exports = {
     async store(req, res,next) {
 
         const { filename } = req.file;
-        const {nome,description,price} = req.body;
+        const {nome,description,price} = req.body;//nome, descrição, preço 
        // const { user_id } = req.headers;
         const {categorias_id} = req.headers;
 
         //const user = await User.findById(user_id);
-        const categorias = await Categorias.find(categorias_id);
+        const categorias = await Categorias.findById(categorias_id);
 
-         if (!categorias) {
-            return res.status(400).json({ error: 'Nome do serviço é obrigatório' });
-        }
+      
         /*else if (!categorias) {
             return res.status(400).json({ error: 'Nome do serviço é obrigatório' });
         }*/
@@ -77,7 +75,7 @@ module.exports = {
             price: price,
   
         }) 
-        return res.json(servicotrl);//spot
+        return res.json(servicotrl);
     },
 
     async update(req, res) {

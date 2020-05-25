@@ -12,12 +12,18 @@ const Categoria = new schema({ //definição de campos
         type: String,
          required:false,
     },
+
+    servico: { type: String, required: true},
+
    // dias:{type: [String]},
 
    // title: {type: [String], required: true},//nome do serviço
-
-    categoriaServico:{ type : [String], required: true},//esse é a categoria do serviço
-
+    categoriaServico:{ type: [String], required: true},
+    //categoriaServico:{ type : [String], required: true},//esse é a categoria do serviço
+    description: {type: String, required: true},
+    price:{
+        type: String
+    },
    /* description:{type:String, required: true},
 
     price:{

@@ -29,9 +29,10 @@ routes.post('/User', userController.store); //SessionController
 //routes.get('/Category', categoryController.index);
 //routes.post('/Category',upload.single('foto'),categoryController.store); //SpotController
 routes.get('/CategoriaModel', categoriaController.index);
-routes.get('/Servico', servicoController.index);
+routes.get('/CategoriaModel', categoriaController.listServico );
+//routes.get('/Servico', servicoController.index);
 routes.get('/CategoriaModel/:id', categoriaController.show);
-routes.get('/Servico/:id', servicoController.show);
+//routes.get('/Servico/:id', servicoController.show);
 
 
 
@@ -44,7 +45,7 @@ routes.get('/filter/all/:user',categoriaController.all);
 routes.delete('/filter/:id', categoriaController.delete);
 
 
-routes.post('/Servico', upload.single('thumbnail'),servicoController.store);
+//routes.post('/Servico', upload.single('thumbnail'),servicoController.store);
 routes.post('/CategoriaModel',upload.single('foto'),categoriaController.store); //SpotController
 routes.put('/CategoriaModel/:id', categoriaController.update);
 

@@ -4,7 +4,7 @@ const variables = {
     },
     Database: {
 
-        connection: process.env.connection || 'mongodb+srv://nofoodadmin:sapientia123@cluster0-k2kw0.mongodb.net/test?retryWrites=true&w=majority'
+        connection: process.env.connection || 'mongodb+srv://nameDatabase:password@cluster0-k2kw0.mongodb.net/test?retryWrites=true&w=majority'
     }
 }
 module.exports = variables;

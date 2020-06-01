@@ -7,7 +7,7 @@ const schema = mongoose.Schema; // importamos o schema
 const UserAcess = new schema({
 
 
-    nome    : {type: String, required: true, trim: true},
+    nome : {type: String, required: true, trim: true},
     cpf:{type:Number, required:true},
     telefone:{type:Number},
     email:{type: String,unique:true,  required:true, lowercase:true},

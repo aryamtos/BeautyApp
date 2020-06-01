@@ -1,6 +1,6 @@
 'use strict'
 
-const repository = require('../controllers/');
+const repository = require('../controllers/repository/SignUp-repository');
 const validation = require('../config/helpers/validation');
 const ctrlBase = require('../config/base/controller-base');
 const _repo = new repository();
@@ -20,6 +20,8 @@ userController.prototype.post = async (req, res) => {
     _validationContract.isRequired(req.body.nome, 'Informe seu nome');
     _validationContract.isRequired(req.body.email, 'Informe seu e-mail');
     _validationContract.isEmail(req.body.email, 'O e-mail informado é inválido');
+    _validationContract.isRequired(req.body.cpf, 'Informe seu cpf');
+    _validationContract.isRequired(req.body.telefone, 'Informe seu telefone');
     _validationContract.isRequired(req.body.senha, 'A senha informada é obrigatória');
     _validationContract.isRequired(req.body.senhaConfirmacao, 'A senha de confirmação é obrigatória');
     _validationContract.isTrue(req.body.senha != req.body.senhaConfirmacao, 'A Senha e a Confirmação não são iguais');
@@ -79,8 +81,8 @@ userController.prototype.authentification= async(req, res) =>{
     let userFounded = await _repo.authenticate(req.body.email, req.body.senha);
     if (userFounded) {
         res.status(200).send({
-            user: userFounded,
-            token: jwt.sign(userFounded, variables.Security.secretKey)
+            usuario: userFounded,
+            token: jwt.sign({user:userFounded}, variables.Security.secretKey)
         })
     }else{
         res.status(404).send({message: "Usuário e senha informado estão inválidos"});

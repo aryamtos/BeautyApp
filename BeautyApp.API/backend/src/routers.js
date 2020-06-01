@@ -28,9 +28,9 @@ const upload = multer(uploadConfig);
 let _ctrl = new userController();
 
 
-//rotas Usuários
-
-routes.get('/', _ctrl.get);
+//ROTAS USUÁRIOS
+routes.post('/auth',_ctrl.authentification)
+routes.get('/',auth, _ctrl.get);
 routes.get('/:id', _ctrl.getById);
 routes.post('/', _ctrl.post);
 routes.put('/:id', _ctrl.put);

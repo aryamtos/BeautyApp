@@ -6,7 +6,7 @@ class userAcessRepository {
 
     constructor() {
         this._base = new base('UserAcess');
-        this._projection = 'nome email  _id';
+        this._projection = 'nome email _id';
     }
 
     async IsEmailExiste(Email) {
@@ -27,6 +27,7 @@ class userAcessRepository {
             {
                 nome: data.nome,
                 email: data.email
+
             });
         return this._base._model.findById(usuarioAtualizado._id, this._projection)
     }
@@ -36,7 +37,7 @@ class userAcessRepository {
     }
 
     async getById(id) {
-        return await this._base._model.findById(id, 'nome email _id ');
+        return await this._base._model.findById(id, 'nome email  _id ');
     }
 
     async delete(id) {

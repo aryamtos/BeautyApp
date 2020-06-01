@@ -1,6 +1,6 @@
 
 const CategoriaModel = require('../models/Categoria'); //Spot
-const User = require('../models/user-model');
+const User = require('../models/UserAcess');
 const { isPast } = require('date-fns');
 const {
     startOfDay,
@@ -25,13 +25,6 @@ module.exports = {
         return res.json(categorias);
     },
     
-    async listServico( req, res){
-
-        const { servico } = req.query;
-        //const categorias = await CategoriaModel.find({ categoriaServico: categoriaServico }).sort('when'); //encontrar vários tipos
-        const servicos = await CategoriaModel.find({ servico: servico })
-        return res.json(servicos);
-    },
     async store(req, res) {
 
         const { filename } = req.file;
@@ -80,11 +73,11 @@ module.exports = {
                         'when': { '$eq': new Date(when) },
                         'user': { '$in': user_id }
                     });
-        }*/
+        }
 
         if (exists) {
             return res.status(400).json({ error: 'Cadastre outra categoria' });
-        }
+        }*/
 
         const categoriactrl = await CategoriaModel.create({
 
@@ -99,7 +92,7 @@ module.exports = {
            // description: description,
             //price: price,
             //when: when,
-            user: user_id
+           user: user_id
         }) 
         return res.json(categoriactrl);//spot
     },
@@ -116,7 +109,7 @@ module.exports = {
             });
 
     },
-    async all(req, res) {
+    /*async all(req, res) {
         await CategoriaModel.find({ user: { '$in': req.body.user } })
            // .sort('when')
             .then(response => {
@@ -125,12 +118,12 @@ module.exports = {
             .catch(error => {
                 return res.status(500).json(error);
             });
-    },
+    },*/
     async show(req, res) {
         await CategoriaModel.findById(req.params.id)
             .then(response => {
                 if (response)
-                    return res.status(200).json(response);
+                    return res.status(200).json(response);  
                 else
                     return res.status(404).json({ error: 'Categoria não encontrado' });
             })

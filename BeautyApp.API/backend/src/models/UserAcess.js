@@ -23,5 +23,5 @@ UserAcess.pre('save', next =>{
     next();
 })
 
-module.exports = mongoose.model('UserSignUp', UserAcess);
+module.exports = mongoose.model('UserAcess', UserAcess);
 

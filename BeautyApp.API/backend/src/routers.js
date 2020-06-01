@@ -1,12 +1,12 @@
 const express = require('express');
 const multer = require('multer');
-const uploadConfig = require('./bin/upload');
+const uploadConfig = require('./config/upload');
 const categoryConfig = require('./bin/categoryUpload');
-const userController = require('./controllers/user-controller');
+const auth = require('./middleware/authentification');
 //const userValidation = require('./middlewares/auth');
 //const categoryController = require('./controllers/category-controller');
 
-
+const userController = require('./controllers/SignUp');
 const servicoController = require('./controllers/ServicoController');
 const categoriaController = require('./controllers/CategoriaController');
 const dashboardController = require('./controllers/DashboardController');
@@ -18,18 +18,30 @@ const localidadeController =require('./controllers/LocalidadeController');
 
 const routes = express.Router();
 const upload = multer(uploadConfig);
-const catUpload = multer(categoryConfig);
 
 
 
-routes.post('/User', userController.store); //SessionController
-//routes.post('/User/Authenticate',userController.authenticate);
-//routes.get('/me',userValidation, userController.get);
+
+//routes.post('/User', userController.store); //SessionController
+
+
+let _ctrl = new userController();
+
+
+//rotas Usuários
+
+routes.get('/', _ctrl.get);
+routes.get('/:id', _ctrl.getById);
+routes.post('/', _ctrl.post);
+routes.put('/:id', _ctrl.put);
+routes.delete('/:id', _ctrl.delete);
+
+
 
 //routes.get('/Category', categoryController.index);
 //routes.post('/Category',upload.single('foto'),categoryController.store); //SpotController
-routes.get('/CategoriaModel', categoriaController.index);
-routes.get('/CategoriaModel', categoriaController.listServico );
+routes.get('/CategoriaModel/', categoriaController.index);
+//routes.get('/CategoriaModel', categoriaController.listServico );
 //routes.get('/Servico', servicoController.index);
 routes.get('/CategoriaModel/:id', categoriaController.show);
 //routes.get('/Servico/:id', servicoController.show);
@@ -41,7 +53,7 @@ routes.get('/CategoriaModel/:id', categoriaController.show);
 //routes.get('/filter/week/:user', categoriaController.week);
 //routes.get('/filter/today/:user', categoriaController.today);
 
-routes.get('/filter/all/:user',categoriaController.all);
+//routes.get('/filter/all/:user',categoriaController.all);
 routes.delete('/filter/:id', categoriaController.delete);
 
 

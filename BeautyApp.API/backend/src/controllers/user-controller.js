@@ -1,6 +1,6 @@
 const User = require('../models/user-model');
 const mongoose = require('mongoose');
-const authMiddleware = require('../middlewares/auth');
+const authMiddleware = require('../middleware/authentification');
 
 
 

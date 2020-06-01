@@ -1,6 +1,6 @@
 
 const ServicoModel = require('../models/servico'); //Spot
-const User = require('../models/user-model');
+const User = require('../models/UserAcess');
 const Categorias = require('../models/Categoria');
 const { isPast } = require('date-fns');
 const {

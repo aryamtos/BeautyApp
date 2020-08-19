@@ -1,4 +1,4 @@
-                                                                   BeautyNode API 🚀⚡️
+                                                           BeautyNode API 🚀⚡️
                                                                    
 
 ### Sobre o Projeto

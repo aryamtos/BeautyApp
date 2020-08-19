@@ -7,16 +7,17 @@ API de iniciante com conceitos básicos sobre arquitetura MVC - _Model-view-cont
 
 
 ### 🚀 Features
- 
-1.Server
 
-2.Rotas
+         1.Server
 
-4.Middlewares
+         2.Rotas
+
+         4.Middlewares
+         
 
 ### ⚡️ Getting started
 
-1.NodeJs
+         1.NodeJs
 
 
 ### 💡 Contributing

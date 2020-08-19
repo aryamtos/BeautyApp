@@ -22,7 +22,7 @@ API de iniciante com conceitos básicos sobre arquitetura MVC - _Model-view-cont
 
 ### 💡 Contributing
 
-  Obrigado por estar interessado em contribuir!Todos os tipos de contribuições são bem-vindos, como correções de bugs ou problemas.
+  Obrigado por estar interessado em contribuir!Todos os tipos de contribuições são bem-vindas, como correções de bugs ou problemas.
 
 
 

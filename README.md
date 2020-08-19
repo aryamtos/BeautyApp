@@ -1,4 +1,4 @@
-                                                                 BeautyNode API 🚀⚡️
+                                                                 # BeautyNode API 🚀⚡️
                                                                    
 
 ### Sobre o Projeto
@@ -17,10 +17,9 @@ API de iniciante com conceitos básicos sobre arquitetura MVC - _Model-view-cont
 1.NodeJs
 
 
-
 ### 💡 Contributing
 
-```Obrigado por estar interessado em contribuir!Todos os tipos de contribuições são bem-vindos, como correções de bugs ou problemas.
+  Obrigado por estar interessado em contribuir!Todos os tipos de contribuições são bem-vindos, como correções de bugs ou problemas.
 
 
 
